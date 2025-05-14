@@ -51,7 +51,7 @@ Carlos Mendes, produtor rural de médio porte que:
 
 ## Estrutura do Projeto
 
-Vamos organizar o repositório GitHub da seguinte forma:
+Vamos organizar o repositório GitHub da seguinte forma:.
 
 ```
 agrochain/
