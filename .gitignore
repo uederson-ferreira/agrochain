@@ -3,6 +3,11 @@ out/
 cache/
 /smart-contracts/seguroagrochain/lib/
 
+# macOS
+.DS_Store
+__MACOSX/
+Icon?
+
 # Node.js (se você estiver usando npm como alternativa)
 node_modules/
 
