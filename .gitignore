@@ -1,3 +1,15 @@
+# Foundry
+out/
+cache/
+/smart-contracts/seguroagrochain/lib/
+
+# Node.js (se você estiver usando npm como alternativa)
+node_modules/
+
+# Outros
+.env
+.DS_Store
+
 # Remix compiler artifacts
 **/artifacts/
 **/artifacts/**
@@ -13,3 +25,70 @@ states/
 # Optional
 .env
 .env.local
+
+# Geral
+.DS_Store
+*.log
+*.env
+*.env.*
+*.secret
+*.key
+*.pem
+
+# Node (frontend/backend)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Python (AI services, backend)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+venv/
+env/
+
+# Rust / Foundry (smart contracts)
+/target/
+/foundry.toml.lock
+*.swp
+*.bak
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Test & coverage
+coverage/
+*.lcov
+
+# Solidity artifacts (se estiver usando Hardhat)
+artifacts/
+cache/
+typechain/
+typechain-types/
+
+# Docker
+docker-compose.override.yml
+*.local.yml
+*.pid
+
+# Outros temporários
+tmp/
+temp/
+logs/
+*.bak
+*.old
+*.orig
+
+# Ignore arquivos .gitkeep ao fazer limpeza automática (opcional)
+**/.gitkeep
