@@ -1,7 +1,7 @@
 .hero-section {
   background: linear-gradient(to right, #2f855a, #276749);
   color: white;
-  padding: 4rem 0;
+  padding: 6rem 0;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -41,9 +41,9 @@
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
@@ -68,7 +68,7 @@
 
 .simular,
 .demonstracao {
-  padding: 0.75rem 1.5rem;
+  padding: 1.3rem 2rem;
   font-weight: bold;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
@@ -79,8 +79,9 @@
 
 .simular {
   background-color: white;
-  color: #065f46;
-  padding: 10px 40px 10px 40px;
+  color: rgb(22 101 52);
+  padding: 5px 40px 10px 40px;
+  border: none;
 }
 
 .simular:hover {
@@ -91,6 +92,7 @@
   border: 2px solid white;
   background: transparent;
   color: white;
+  padding: 5px 40px 10px 40px;
 }
 
 .demonstracao:hover {
@@ -141,17 +143,28 @@
 .card-header {
   background-color: rgb(22 163 74);
   color: white;
-  padding: 1rem 6.25rem; 
+  padding: 1rem 1rem;
   text-align: center;
   font-weight: bold;
-  font-size: 1.1rem; 
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-width: 800px; /* igual ao outro bloco */
+  margin: 0 auto;   /* centraliza */
+  width: 100%;
 }
 
 .card-body {
-  padding: 1.25rem 1.5rem;
+  padding: 2rem 1rem;
   color: #1f2937;
-  font-size: 0.95rem; /* maior texto */
+  font-size: 0.95rem;
   line-height: 1.6;
+
+  max-width: 800px; /* mesmo valor que o header */
+  margin: 0 auto;
+  width: 100%;
 }
 
 .card-info {
@@ -166,7 +179,7 @@
 }
 
 .value {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .card-event,
@@ -194,8 +207,8 @@
 }
 
 .progress-fill {
-  background-color: #047857;
-  height: 100%;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
+  height: 125%;
   width: 100%;
   border-radius: 9999px;
 }
@@ -217,7 +230,7 @@
 .status-success {
   font-size: 1rem;
   font-weight: bold;
-  color: #047857;
+  color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,7 +245,7 @@
 .card-footer button {
   background: none;
   border: none;
-  color: #047857;
+  color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;

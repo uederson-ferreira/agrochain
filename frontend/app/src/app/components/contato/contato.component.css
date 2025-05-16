@@ -1,0 +1,110 @@
+.contato-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(to right, #2f855a, #276749);
+  border-radius: 12px;
+  color: white; 
+  box-shadow: 0 8px 16px rgb(21 128 61 / 0.4);
+  font-family: 'Poppins', Tahoma, Verdana, sans-serif;
+}
+
+.contato-externo {
+  position: relative;
+  min-height: 100vh; /* ocupar tela toda */
+  background: linear-gradient(to right, #2f855a, #276749);
+  overflow: hidden;
+}
+
+.background-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* deixa click passar */
+  border-radius: 0; /* ou o que quiser */
+}
+
+.app-header,
+.contato-container,
+.app-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.contato-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+}
+
+.contato-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.contato-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.contato-form input,
+.contato-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  background-color: #ffffff; 
+  transition: box-shadow 0.3s ease;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgb(21, 128, 61);
+  background-color: #ffffff;
+}
+
+.contato-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: rgb(21, 128, 61);
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contato-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.contato-form button:hover:not(:disabled) {
+  background-color: #1b6c47;
+  color: white;
+  box-shadow: 0 0 12px #d6e9d9;
+}
+
+.error {
+  color: #ffcccc;
+  font-size: 0.85rem;
+  margin-top: -14px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}

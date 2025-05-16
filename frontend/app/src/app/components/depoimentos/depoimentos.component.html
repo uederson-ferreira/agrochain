@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="depoimentos-externo">
+  <h2>O que nossos clientes estão dizendo?</h2>
+
+  <div class="depoimentos-grid">
+    <div class="depoimento-card" *ngFor="let dep of depoimentos">
+      <img class="avatar" [src]="dep.avatar" [alt]="dep.nome" />
+      <p class="mensagem">“{{ dep.mensagem }}”</p>
+      <div class="autor">
+        <strong>{{ dep.nome }}</strong>
+        <span>{{ dep.cargo }}</span>
+      </div>
+      <div class="estrelas">
+        <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+          <span [class.filled]="i < dep.estrelas">★</span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <h2 class="pers">Precisa de mais? ou já ficou convencido?</h2>
+</div>
+<app-footer></app-footer>

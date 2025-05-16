@@ -31,8 +31,7 @@
 
 .logo-text {
   font-size: 1.20rem;
-  font-weight: bold;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .menu-desktop {
@@ -51,7 +50,7 @@
   color: white;
   text-decoration: none;
   transition: color 0.3s;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .menu-link:hover {
@@ -67,7 +66,7 @@
 }
 
 .fa-between {
-  font-size: 28px; /* tamanho entre fa-lg e fa-2x */
+  font-size: 25px; 
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="contato-externo">
+  <canvas #canvas class="background-canvas"></canvas>
+
+  <div class="contato-container">
+    <h1>Fale Conosco</h1>
+    <p>Queremos ouvir você! Envie sua mensagem abaixo:</p>
+  
+    <form class="contato-form" (ngSubmit)="onSubmit()" #contatoForm="ngForm">
+        <label for="nome">Nome</label>
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          required
+          [(ngModel)]="nome"
+          #nomeInput="ngModel"
+          placeholder="Seu nome"
+        />
+        <div class="error" *ngIf="nomeInput.invalid && nomeInput.touched">
+          Por favor, insira seu nome.
+        </div>
+    
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          [(ngModel)]="email"
+          #emailInput="ngModel"
+          placeholder="seuemail@exemplo.com"
+        />
+        <div class="error" *ngIf="emailInput.invalid && emailInput.touched">
+          Por favor, insira um email válido.
+        </div>
+    
+        <label for="mensagem">Mensagem</label>
+        <textarea
+          id="mensagem"
+          name="mensagem"
+          rows="5"
+          required
+          [(ngModel)]="mensagem"
+          #mensagemInput="ngModel"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+        <div class="error" *ngIf="mensagemInput.invalid && mensagemInput.touched">
+          A mensagem não pode ficar vazia.
+        </div>
+    
+        <button type="submit" [disabled]="contatoForm.invalid">Enviar</button>
+      </form>
+    </div>
+</div>
+ <app-footer></app-footer>
