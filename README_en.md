@@ -1,7 +1,7 @@
+
 # 🌾 AgroChain – Plataforma de Seguro Agrícola Paramétrico
 
-**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity** e uma **API em Python**. Utilizando **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), ela automatiza **apólices, pagamentos e governança baseada em tokens**.
-
+**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity** e uma **API em Python**. Utilizando **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), ela automatiza **apólices, pagamentos e governança baseada em tokens**.  
 > 🚀 Transparente. Rápido. Sem burocracia.
 
 ---
@@ -10,13 +10,13 @@
 
 A AgroChain é composta por:
 
-* 🧠 **Contratos Inteligentes**:
+- 🧠 **Contratos Inteligentes**:  
   `AgroChainInsurance`, `PolicyNFT`, `AgroChainOracle`, `AgroChainTreasury`, `AgroChainGovernance`, `AgroChainToken`.
 
-* 🖥️ **Backend**:
+- 🖥️ **Backend**:  
   API FastAPI localizada em `src/main.py`.
 
-* ✅ **Testes Automatizados**:
+- ✅ **Testes Automatizados**:  
   Arquivos em `src/tests/test_routes.py`.
 
 ---
@@ -25,27 +25,22 @@ A AgroChain é composta por:
 
 Tenha os seguintes componentes instalados:
 
-* 📦 Node.js `v16+` & `npm` (para o Anvil)
-
-* 🐍 Python `v3.10+` & `pip`
-
-* 🧱 Foundry
-  Instale com:
-
+- 📦 Node.js `v16+` & `npm` (para o Anvil)
+- 🐍 Python `v3.10+` & `pip`
+- 🧱 Foundry  
+  Instale com:  
   ```bash
   curl -L https://foundry.paradigm.xyz | bash
   foundryup
   ```
 
-* 🔁 Anvil
-
+- 🔁 Anvil  
   ```bash
   npm install -g @foundry-rs/foundry
   ```
 
-* 🧬 Git
-
-* ☁️ **Chave da API OpenWeather**
+- 🧬 Git  
+- ☁️ **Chave da API OpenWeather**  
   → Crie sua conta em [openweathermap.org](https://openweathermap.org/)
 
 ---
@@ -157,8 +152,8 @@ uvicorn src.main:app --reload
 
 Certifique-se de que:
 
-* Anvil está rodando ✅
-* Contratos foram implantados ✅
+- Anvil está rodando ✅
+- Contratos foram implantados ✅
 
 Então execute:
 
@@ -170,7 +165,7 @@ pytest src/tests/test_routes.py -v
 
 ## 🔌 Uso da API – Endpoints Principais
 
-📚 Acesse a documentação interativa:
+📚 Acesse a documentação interativa:  
 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ### 📝 Criar Apólice
@@ -179,8 +174,7 @@ pytest src/tests/test_routes.py -v
 POST /api/policies
 ```
 
-#### Corpo
-
+#### Corpo:
 ```json
 {
   "farmer": "0x...",
@@ -219,11 +213,11 @@ GET /treasury/balance
 
 ---
 
-### Outros
+### Outros:
 
-* `/api/policies/{id}/nft` → Metadados do NFT da apólice
-* `/governance/proposals` → Criação de propostas
-* `/admin/regions` → Adicionar regiões
+- `/api/policies/{id}/nft` → Metadados do NFT da apólice  
+- `/governance/proposals` → Criação de propostas  
+- `/admin/regions` → Adicionar regiões  
 
 ---
 
@@ -255,12 +249,10 @@ curl -X POST http://127.0.0.1:8000/admin/regions \
 ## 🛠️ Solução de Problemas
 
 ### ❌ 404 nas Rotas
-
-* Verifique os endereços no `.env`
-* Verifique se a compilação gerou arquivos em `out/`
+- Verifique os endereços no `.env`
+- Verifique se a compilação gerou arquivos em `out/`
 
 ### 🧪 Falha nos Testes?
-
 ```bash
 pip install pytest-mock
 forge build
@@ -270,19 +262,15 @@ forge build
 
 ## 🤝 Contribuição
 
-1. Fork 🍴
-2. Crie uma branch
-
+1. Fork 🍴  
+2. Crie uma branch  
 ```bash
 git checkout -b feature/sua-funcionalidade
 ```
-
-3. Commit
-
+3. Commit  
 ```bash
 git commit -m "feat: nova funcionalidade"
 ```
-
 4. Envie um PR 🚀
 
 ---
