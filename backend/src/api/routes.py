@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+import requests
 from ..models.schemas import (
     CreatePolicyRequest, ActivatePolicyRequest, ClimateDataRequest,
     AddCapitalRequest, CreateProposalRequest, VoteProposalRequest,
