@@ -1,0 +1,56 @@
+.problemas-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.problemas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.problemas-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937; /* tom de cinza escuro */
+  margin-bottom: 3rem;
+}
+
+.problemas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.problemas-card {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problemas-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.problemas-icon {
+  font-size: 2.5rem;
+  color: #16a34a; /* verde */
+  margin-bottom: 1rem;
+}
+
+.problemas-subtitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.problemas-text {
+  color: #4b5563; /* cinza */
+  font-size: 1rem;
+  line-height: 1.5;
+}

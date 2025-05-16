@@ -1,0 +1,81 @@
+.gradient-bg {
+  background: linear-gradient(135deg, #2F855A 0%, #276749 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-white {
+  color: white;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.20rem;
+  font-weight: bold;
+  font-weight: 500;
+}
+
+.menu-desktop {
+  display: none;
+}
+
+.menu-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+.menu-link:hover {
+  color: #C6F6D5; /* verde claro */
+}
+
+.menu-button {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.fa-between {
+  font-size: 28px; /* tamanho entre fa-lg e fa-2x */
+}
+
+@media (min-width: 768px) {
+  .menu-desktop {
+    display: block;
+  }
+
+  .menu-button {
+    display: none;
+  }
+}
