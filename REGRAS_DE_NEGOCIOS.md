@@ -382,9 +382,9 @@ A <-- PN: PolicyNFTBurned event (se cobertura total)
 
 ---
 
-### Representação em Mermaid (Opcional)
+### Representação em Mermaid
 
-Se você preferir um diagrama renderizável, aqui está o código em **Mermaid** para o fluxo de apólices. Você pode colá-lo em uma ferramenta como [Mermaid Live Editor](https://mermaid.live/):
+Aqui está o código em **Mermaid** para o fluxo de apólices. Você pode colá-lo em uma ferramenta como [Mermaid Live Editor](https://mermaid.live/):
 
 ```mermaid
 sequenceDiagram
@@ -427,21 +427,4 @@ sequenceDiagram
     PN-->>AI: PolicyNFTBurned event
 ```
 
----
-
-### Resposta à Sua Pergunta
-
-O diagrama acima descreve os fluxos de **criação de apólices** e **processamento de sinistros** do AgroChain, com detalhes sobre contratos, funções, e regras de negócio. Se você quiser:
-
-- **Mais Detalhes**: Posso focar em um fluxo específico ou detalhar interações internas (ex.: agregação de dados no oráculo).
-- **Formato Visual**: Posso ajustar o código Mermaid ou sugerir outra ferramenta (ex.: Lucidchart, Draw.io).
-- **Testes**: Posso criar cenários de teste para validar esses fluxos com Foundry.
-- **Melhorias**: Posso propor ajustes nos contratos para otimizar os fluxos (ex.: automação de expiração).
-
-Por favor, me diga como prosseguir! Exemplo:
-
-- "Quero o diagrama em outra ferramenta."
-- "Crie testes para o fluxo de sinistros."
-- "Aprofunde o fluxo de agregação de dados no oráculo."
-
-Aguardo sua resposta!
+O diagrama acima descreve os fluxos de **criação de apólices** e **processamento de sinistros** do AgroChain, com detalhes sobre contratos, funções, e regras de negócio.
