@@ -1,0 +1,9 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+web3==6.15.1
+pydantic==2.9.2
+requests==2.32.3
+python-dotenv==1.0.1
+psycopg2-binary==2.9.9  # Para PostgreSQL (opcional, se usar banco de dados)
+pytest==8.3.3          # Para testes
+pytest-asyncio==0.24.0 # Para testes assíncronos
