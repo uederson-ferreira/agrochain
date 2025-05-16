@@ -3,6 +3,9 @@ out/
 cache/
 /smart-contracts/seguroagrochain/lib/
 
+#Ambiente Python
+.venv/
+
 # macOS
 .DS_Store
 __MACOSX/
