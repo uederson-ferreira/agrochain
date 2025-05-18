@@ -35,12 +35,14 @@ O AgroChain é composto por uma série de contratos inteligentes interconectados
 O contrato central que implementa a lógica de negócios do seguro paramétrico.
 
 **Responsabilidades:**
+
 - Criação e gerenciamento de apólices
 - Personalização de parâmetros climáticos
 - Verificação de elegibilidade para sinistros
 - Processamento de pagamentos automáticos
 
 **Integrações:**
+
 - Recebe dados climáticos do AgroChainOracle
 - Solicita transferências financeiras ao AgroChainTreasury
 - É governado por decisões do AgroChainGovernance
@@ -50,12 +52,14 @@ O contrato central que implementa a lógica de negócios do seguro paramétrico.
 Sistema de oráculos que obtém e verifica dados climáticos de fontes confiáveis.
 
 **Responsabilidades:**
+
 - Integração com múltiplas fontes de dados climáticos
 - Agregação e validação de dados
 - Prevenção de manipulação através de consenso
 - Manutenção de histórico climático para análise
 
 **Integrações:**
+
 - Recebe solicitações do AgroChainInsurance
 - Integração com Chainlink para dados externos
 - Suporte a múltiplos provedores de dados para redundância
@@ -65,12 +69,14 @@ Sistema de oráculos que obtém e verifica dados climáticos de fontes confiáve
 Gerencia o capital, prêmios e pagamentos de indenizações do sistema.
 
 **Responsabilidades:**
+
 - Gestão de reservas financeiras
 - Processamento de prêmios e indenizações
 - Balanceamento de pools de risco
 - Estratégias de rendimento para capital não utilizado
 
 **Integrações:**
+
 - Recebe solicitações de pagamento do AgroChainInsurance
 - Mantém reservas para cobrir os riscos das apólices ativas
 - Integração potencial com DeFi para geração de rendimento
@@ -80,12 +86,14 @@ Gerencia o capital, prêmios e pagamentos de indenizações do sistema.
 Sistema de governança descentralizada para o protocolo.
 
 **Responsabilidades:**
+
 - Processamento de propostas e votações
 - Alteração de parâmetros do sistema
 - Atualização de contratos
 - Gestão de fundos comunitários
 
 **Integrações:**
+
 - Utiliza o AgroChainToken para direitos de voto
 - Pode modificar parâmetros em todos os outros contratos
 - Implementa mecanismo de timelock para segurança
@@ -95,11 +103,13 @@ Sistema de governança descentralizada para o protocolo.
 Token de governança e utilidade do ecossistema.
 
 **Responsabilidades:**
+
 - Fornece direitos de voto na governança
 - Pode ser usado para staking e incentivos
 - Captura valor do protocolo
 
 **Integrações:**
+
 - Integrado ao AgroChainGovernance para votação
 - Pode ser usado em mecanismos de recompensa
 
@@ -232,16 +242,19 @@ struct ClimateData {
 ## Considerações Técnicas
 
 ### Escalabilidade
+
 - Implementação em sidechains de baixo custo como Polygon
 - Otimização de gás para operações frequentes
 - Processamento em lote para múltiplas apólices
 
 ### Integração com APIs Externas
+
 - Conexão com serviços meteorológicos através de Chainlink
 - Integração com bancos de dados climáticos
 - Conexão com sistemas de pagamento tradicionais
 
 ### Requisitos de Infraestrutura
+
 - Nodes Ethereum para interação com os contratos
 - Servidores off-chain para indexação e consulta de dados
 - Interfaces de usuário para produtores rurais
@@ -250,18 +263,21 @@ struct ClimateData {
 ## Roadmap de Implementação
 
 ### Fase 1: MVP
+
 - Implementação dos contratos principais
 - Integração com oráculos Chainlink
 - Interface básica de usuário
 - Suporte a apólices simples
 
 ### Fase 2: Recursos Avançados
+
 - Implementação do token de governança
 - Sistema de governança descentralizada
 - Estratégias de rendimento para capital
 - Mercado secundário de apólices
 
 ### Fase 3: Escalabilidade e Expansão
+
 - Suporte a múltiplos tipos de culturas e regiões
 - Integrações com sistemas tradicionais de seguro
 - Expansão para outros setores além da agricultura
