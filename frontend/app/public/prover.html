@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simular Apólice com zkSNARK</title>
+  <link rel="stylesheet" href="prover.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gerador de Apólice com Conhecimento Zero - zkVerify </h1>
+      <p class="subtitle">Gere provas de zero-knowledge para validação de apólices</p>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2>Formulário de Entrada - Prova ZK</h2>
+        <form id="zkForm">
+          <div class="form-group">
+            <label for="farmer_hash">Farmer Hash (keccak256)</label>
+            <input id="farmer_hash" value="0xD1BE6aEEbB4c08624730B912Def3Af2d9CdC807B" />
+          </div>
+
+          <div class="form-group">
+            <label for="coverage_amount">Coverage Amount</label>
+            <input id="coverage_amount" type="number" value="50000" />
+          </div>
+
+          <div class="form-group">
+            <label for="start_date">Start Date (timestamp)</label>
+            <input id="start_date" type="number" value="1750000000" />
+          </div>
+
+          <div class="form-group">
+            <label for="end_date">End Date (timestamp)</label>
+            <input id="end_date" type="number" value="1750600000" />
+          </div>
+
+          <div class="form-group">
+            <label for="region_hash">Region</label>
+            <input id="region_hash" value="Maraba" />
+          </div>
+
+          <div class="form-group">
+            <label for="crop_type_hash">Crop Type</label>
+            <input id="crop_type_hash" value="soja" />
+          </div>
+
+          <div class="form-group">
+            <label for="parameter_type_hash">Parameter Type</label>
+            <input id="parameter_type_hash" value="chuva" />
+          </div>
+
+          <div class="form-group">
+            <label for="threshold_value">Threshold Value</label>
+            <input id="threshold_value" type="number" value="120" />
+          </div>
+
+          <div class="form-group">
+            <label for="period_in_days">Period in Days</label>
+            <input id="period_in_days" type="number" value="30" />
+          </div>
+
+          <div class="form-group">
+            <label for="trigger_above">Trigger Above</label>
+            <select id="trigger_above">
+              <option value="1" selected>true</option>
+              <option value="0">false</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="payout_percentage">Payout Percentage</label>
+            <input id="payout_percentage" type="number" value="80" />
+          </div>
+
+          <div class="form-group">
+            <label for="zkProofHash">ZK Proof Hash</label>
+            <input id="zkProofHash" value="0x2e5a8d7c4b1e9a2f5d8c7b4a1e9d2c5b8a7f4e1d9c67a3d9f5b2c1e8a4d6b9c0f" />
+          </div>
+
+          <div class="form-group">
+            <label for="current_timestamp">Current Timestamp (auto)</label>
+            <input id="current_timestamp" type="number" value="1750000000" />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" onclick="gerarProva()" id="generateBtn">Gerar Prova</button>
+            <button type="button" onclick="resetForm()" class="secondary">Limpar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card result-card" id="resultCard" style="display: none;">
+        <h2>Resultado da Prova</h2>
+        <div class="loader" id="proofLoader" style="display: none;">
+          <div class="spinner"></div>
+          <p>Gerando prova... Isso pode levar alguns segundos.</p>
+        </div>
+        <pre id="proofResult"></pre>
+      </div>
+    </main>
+
+    <footer>
+      <p>Powered by Uederson Ferreira With - zkVerify - Zero Knowledge Proofs</p>
+    </footer>
+  </div>
+
+  <div id="notification" class="notification"></div>
+  <script src="https://cdn.jsdelivr.net/npm/snarkjs@0.6.11/build/snarkjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script type="module" src="prover.js"></script>
+</body>
+</html>

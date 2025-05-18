@@ -1,0 +1,18 @@
+     {
+        "farmer": "0xabc123abc123abc123abc123abc123abc123abcd",       
+        "coverageAmount": 50000,                                       
+        "startDate": 1750000000,                                       
+        "endDate": 1750600000,                                         
+        "region": "NORTE",                                             
+        "cropType": "SOJA",                                            
+        "parameters": [
+          {
+            "parameterType": "chuva",                                  
+            "threshold": 120,
+            "periodDays": 30,
+            "triggerAbove": true,
+            "payoutPercentage": 80
+          }
+        ],
+        "zkProofHash": "0xproofhash00000000000000000000000000000000000000000000000000000000000000"
+      }

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
-import "forge-std/console.sol"; // Adicionando console.log
+import "forge-std/console.sol";
 import "../src/AgroChainInsurance.sol";
 import "../src/AgroChainOracle.sol";
 import "../src/AgroChainTreasury.sol";
@@ -13,13 +13,13 @@ import "../src/PolicyNFT.sol";
 import "./mocks/MockTreasury.sol";
 import { ConcreteAgroChainGovernance } from "../src/ConcreteAgroChainGovernance.sol";
 
-// Adicionando a estrutura ClimateParams
 struct ClimateParams {
     uint32 precipitacaoMinima;
     uint32 precipitacaoMaxima;
     uint32 temperaturaMediaIdeal;
     uint32 variacaoTemperaturaPermitida;
 }
+
 contract AgroChainIntegrationTest is Test {
     // Contracts
     AgroChainInsurance insurance;
@@ -48,19 +48,19 @@ contract AgroChainIntegrationTest is Test {
         // Parâmetro de precipitação
         parameters[0] = IAgroChainInsurance.ClimateParameter({
             parameterType: "rainfall",
-            thresholdValue: 50000,  // 500mm
+            thresholdValue: 50000,
             periodInDays: 180,
-            triggerAbove: false,    // Aciona se abaixo do limiar
-            payoutPercentage: 5000  // 50%
+            triggerAbove: false,
+            payoutPercentage: 5000
         });
         
         // Parâmetro de temperatura
         parameters[1] = IAgroChainInsurance.ClimateParameter({
             parameterType: "temperature",
-            thresholdValue: 28000,  // 28°C
+            thresholdValue: 28000,
             periodInDays: 180,
-            triggerAbove: true,     // Aciona se acima do limiar
-            payoutPercentage: 5000  // 50%
+            triggerAbove: true,
+            payoutPercentage: 5000
         });
         
         return parameters;
@@ -219,7 +219,7 @@ contract AgroChainIntegrationTest is Test {
         assertTrue(address(token) != address(0), "Token should be deployed");
         assertTrue(address(policyNFT) != address(0), "PolicyNFT should be deployed");
     }
-    
+
     function testCreatePolicy() public {
         vm.startPrank(farmer);
         
@@ -235,7 +235,8 @@ contract AgroChainIntegrationTest is Test {
             block.timestamp + 180 days,     // data de término
             "Bahia",                        // região
             "Soja",                         // tipo de cultura
-            _createClimateParameters()      // parâmetros climáticos
+            _createClimateParameters(),      // parâmetros climáticos
+            "0x5a2e041b4a310e3e5b88dbcb4822c7e65a1a0f25d35f3e1f6e8f6e6cd20a4978" // hash do zk proof
         );
         
         // Verificar se a apólice foi criada
@@ -263,8 +264,6 @@ contract AgroChainIntegrationTest is Test {
         
         vm.stopPrank();
     }
-    
-    // Removido o helper function que não está sendo usado
     
     function testPolicyActivation() public {
         // Criar uma política primeiro
@@ -565,15 +564,17 @@ contract AgroChainIntegrationTest is Test {
             ) = treasury.getFinancialHealth();
             
             // Se a proposta foi executada com sucesso, o reserveRatio deve ser maior que o original
-            assertGt(reserveRatio, 0, "Reserve ratio should be positive after governance update");
-            
+            assertGt(solvencyRatio, 0, "Solvency ratio should be positive");
+            assertGt(reserveRatio, 0, "Reserve ratio should be positive");
+            assertGt(liquidityRatio, 0, "Liquidity ratio should be positive");
+
             // vm.stopPrank();
         } else {
             vm.stopPrank(); // Para o investor se não executou a proposta
         }
     }
 
-    function testTreasuryOperations() public {
+  function testTreasuryOperations() public {
         // No início do teste, aumentar o poder de voto do investidor:
         vm.startPrank(deployer);
         // Transferir mais tokens para o investidor para garantir que ele atinja o quórum
@@ -625,7 +626,8 @@ contract AgroChainIntegrationTest is Test {
         assertGt(reserveRatio, 0, "Reserve ratio should be positive");
         assertGt(liquidityRatio, 0, "Liquidity ratio should be positive");
     }
-    
+
+
     function testInsuranceRestrictions() public {
         // Testar restrições do seguro
         
@@ -641,7 +643,8 @@ contract AgroChainIntegrationTest is Test {
             block.timestamp + 180 days,
             unicode"São Paulo", // Região não registrada
             "Soja",
-            _createClimateParameters()
+            _createClimateParameters(),      // parâmetros climáticos
+            "mockZkProofHash" // hash do zk proof
         );
         
         // Tentar criar uma apólice com um tipo de cultura não suportado
@@ -653,7 +656,8 @@ contract AgroChainIntegrationTest is Test {
             block.timestamp + 180 days,
             "Bahia",
             unicode"Café", // Cultura não registrada
-            _createClimateParameters()
+            _createClimateParameters(),      // parâmetros climáticos
+            "mockZkProofHash" // hash do zk proof
         );
         
         vm.stopPrank();

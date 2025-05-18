@@ -6,6 +6,9 @@ cache/
 #Ambiente Python
 .venv/
 
+#Circom
+circom/
+
 # macOS
 .DS_Store
 __MACOSX/

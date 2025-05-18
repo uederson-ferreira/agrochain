@@ -1,0 +1,14 @@
+{
+  "farmer_hash": "123456",
+  "coverage_amount": "1000",
+  "start_date": "1716069600",
+  "end_date": "1718748000",
+  "region_hash": "789101",
+  "crop_type_hash": "112131",
+  "parameter_type_hash": "415161",
+  "threshold_value": "500",
+  "period_in_days": "30",
+  "trigger_above": "1",
+  "payout_percentage": "5000",
+  "current_timestamp": "1715983200"
+}

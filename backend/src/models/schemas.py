@@ -6,8 +6,7 @@ class ClimateParameter(BaseModel):
     thresholdValue: int
     periodInDays: int
     triggerAbove: bool
-    payoutPercentage: int
-
+    payoutPercentage: int    
 class CreatePolicyRequest(BaseModel):
     farmer: str
     coverageAmount: int
@@ -16,6 +15,7 @@ class CreatePolicyRequest(BaseModel):
     region: str
     cropType: str
     parameters: List[ClimateParameter]
+    zkProofHash: str  # ✅ NOVO CAMPO
 
 class ActivatePolicyRequest(BaseModel):
     premium: int

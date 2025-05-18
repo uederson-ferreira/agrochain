@@ -28,12 +28,18 @@ async def create_policy(request: CreatePolicyRequest):
     import time
     
     logger.debug(f"Received request: {request.dict()}")
+    print("zkProofHash recebido:", request.zkProofHash)
     
     # Validar o endereço do farmer
     if not Web3.is_address(request.farmer):
         logger.error(f"Invalid farmer address: {request.farmer}")
         raise HTTPException(status_code=400, detail="Invalid farmer address")
-        
+    
+    zk_hash = request.zkProofHash
+    if zk_hash is None or not isinstance(zk_hash, str) or not zk_hash.strip():
+        logger.error("zkProofHash is required but missing or empty")
+        raise HTTPException(status_code=400, detail="zkProofHash is required")
+
     # Validar data de início (deve estar no futuro)
     current_time = int(time.time())
     if request.startDate <= current_time:
@@ -76,8 +82,10 @@ async def create_policy(request: CreatePolicyRequest):
             request.endDate,
             request.region,
             request.cropType,
-            parameters
+            parameters,
+            request.zkProofHash  # ✅ ADICIONADO AQUI
         )
+
         
         # Enviar a transação
         receipt = send_transaction(contract_function)

@@ -11,10 +11,16 @@ app = FastAPI(
     redoc_url="/api/redoc"  # ReDoc
 )
 
+# ⚠️ Ajuste isso para a origem que você deseja permitir
+origins = [
+    "http://localhost:4200",
+    "http://localhost:3000",  # seu frontend Angular
+]
+
 # Configurar CORS para Angular
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],
+    allow_origins=origins,  # ou ['*'] para tudo (em desenvolvimento)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

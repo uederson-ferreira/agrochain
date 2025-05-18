@@ -109,7 +109,15 @@ contract AgroChainInsurance is
     }
     
     /**
-     * @dev Create a new policy
+     * @dev Create a new policy with ZK proof validation
+     * @param _farmer Address of the farmer
+     * @param _coverageAmount Coverage amount in wei
+     * @param _startDate Start date (UNIX timestamp)
+     * @param _endDate End date (UNIX timestamp)
+     * @param _region Region of the property (e.g., "marabá")
+     * @param _cropType Crop type (e.g., "Soja")
+     * @param _parameters List of climate parameters
+     * @param zkProofHash Hash of the ZK proof for validation
      */
     function createPolicy(
         address payable _farmer,
@@ -118,7 +126,8 @@ contract AgroChainInsurance is
         uint256 _endDate,
         string calldata _region,
         string calldata _cropType,
-        ClimateParameter[] calldata _parameters
+        ClimateParameter[] calldata _parameters,
+        string calldata zkProofHash
     ) 
         external 
         override 
@@ -134,18 +143,20 @@ contract AgroChainInsurance is
         require(_parameters.length > 0, "Must have at least one parameter");
         require(_supportedRegions[_region], "Region not supported");
         require(_supportedCrops[_cropType], "Crop type not supported");
+        require(bytes(_region).length > 0, "Region cannot be empty"); // Nova validação
+        require(bytes(_cropType).length > 0, "Crop type cannot be empty"); // Nova validação
+        require(bytes(zkProofHash).length > 0, "ZK proof hash cannot be empty"); // Nova validação
         
         // Validate parameters
         for(uint256 i = 0; i < _parameters.length; i++) {
             require(_parameters[i].thresholdValue > 0, "Invalid threshold value");
             require(_parameters[i].periodInDays > 0, "Invalid period");
             require(_parameters[i].payoutPercentage > 0 && _parameters[i].payoutPercentage <= 10000, "Invalid payout percentage");
-            
-            // Ensure the parameter type is valid (e.g., rainfall, temperature)
             require(
                 _isValidParameterType(_parameters[i].parameterType),
                 "Invalid parameter type"
             );
+            require(bytes(_parameters[i].parameterType).length > 0, "Parameter type cannot be empty"); // Nova validação
         }
         
         // Calculate premium based on risk model
@@ -165,7 +176,8 @@ contract AgroChainInsurance is
                 _endDate,
                 _region,
                 _cropType,
-                abi.encode(_parameters)
+                abi.encode(_parameters),
+                zkProofHash // Incluído no hash
             )
         );
         
@@ -197,6 +209,10 @@ contract AgroChainInsurance is
         return policyId;
     }
     
+    function getPolicyCounter() external view returns (uint256) {
+        return _policyCounter;
+    }
+
     /**
      * @dev Activate policy by paying premium
      */
