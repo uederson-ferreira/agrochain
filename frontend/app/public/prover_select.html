@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
@@ -10,7 +9,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>Simulador de Apólice com zkSNARK</h1>
+      <h1>Gerador de Apólice com Conhecimento Zero - zkVerify</h1>
       <p class="subtitle">Gere provas de zero-knowledge para validação de apólices</p>
     </header>
 
@@ -18,9 +17,10 @@
       <div class="card">
         <h2>Formulário de Entrada - Prova ZK</h2>
         <form id="zkForm">
+          <!-- Os campos do formulário permanecem os mesmos -->
           <div class="form-group">
             <label for="farmer_hash">Farmer Hash (keccak256)</label>
-            <input id="farmer_hash" value="0xabc123abc123abc123abc123abc123abc123abcd" />
+            <input id="farmer_hash" value="0xD1BE6aEEbB4c08624730B912Def3Af2d9CdC807B" />
           </div>
 
           <div class="form-group">
@@ -40,12 +40,12 @@
 
           <div class="form-group">
             <label for="region_hash">Region</label>
-            <input id="region_hash" value="NORTE" />
+            <input id="region_hash" value="Maraba" />
           </div>
 
           <div class="form-group">
             <label for="crop_type_hash">Crop Type</label>
-            <input id="crop_type_hash" value="SOJA" />
+            <input id="crop_type_hash" value="soja" />
           </div>
 
           <div class="form-group">
@@ -78,7 +78,7 @@
 
           <div class="form-group">
             <label for="zkProofHash">ZK Proof Hash</label>
-            <input id="zkProofHash" value="0xproofhash00000000000000000000000000000000000000000000000000000000000000" />
+            <input id="zkProofHash" value="0x2e5a8d7c4b1e9a2f5d8c7b4a1e9d2c5b8a7f4e1d9c67a3d9f5b2c1e8a4d6b9c0f" />
           </div>
 
           <div class="form-group">
@@ -86,15 +86,25 @@
             <input id="current_timestamp" type="number" value="1750000000" />
           </div>
 
+          <!-- 🚀 Botões separados por ação -->
           <div class="form-actions">
-            <button type="button" onclick="gerarProva()" id="generateBtn">Gerar Prova</button>
+            <button type="button" id="generateBtn" onclick="gerarProva()">1️⃣ Gerar Prova</button>
+            <button type="button" id="btnVerifySnarkjs" onclick="verificarComSnarkjs()">2️⃣ Verificar Prova</button>
+            <!-- <button id="btnVerifyZkVerify">3️⃣ Verificar com zkVerify</button> -->
+            <!-- <button type="button" id="btnVerifyZkVerify" onclick="verificarComZkVerify()">3️⃣ Verificar">4️⃣ com zkVerify</button> -->
+            <button type="button" id="btnEnviarAPI" onclick="enviarParaAPI()">3️⃣ Enviar para API</button>
             <button type="button" onclick="resetForm()" class="secondary">Limpar</button>
           </div>
         </form>
       </div>
 
-      <div class="card result-card" id="resultCard" style="display: none;">
+      <div class="card result-card" id="resultCard">
         <h2>Resultado da Prova</h2>
+          <div style="margin-top: 5px; font-size: 14px;">
+            <strong>Status local:</strong> <span id="zkStatusLocal">-</span><br>
+            <strong>Status na API:</strong> <span id="zkStatusApi">-</span>
+            <div id="verificationStatusExtra"></div>
+          </div>
         <div class="loader" id="proofLoader" style="display: none;">
           <div class="spinner"></div>
           <p>Gerando prova... Isso pode levar alguns segundos.</p>
@@ -104,11 +114,13 @@
     </main>
 
     <footer>
-      <p>Powered by zkVerify - Zero Knowledge Proofs</p>
+      <p>Powered by Uederson Ferreira With - zkVerify - Zero Knowledge Proofs</p>
     </footer>
   </div>
 
   <div id="notification" class="notification"></div>
-  <script type="module" src="prover.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/snarkjs@0.6.11/build/snarkjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script type="module" src="prover_select.js"></script>
 </body>
 </html>
