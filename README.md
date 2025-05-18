@@ -9,7 +9,7 @@ https://github.com/uederson-ferreira
 #### Product Manager: José Franco####
 https://github.com/josemvfranco
 
-**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity**, utilizando provas geradas em **Zero-Knowledge Proof**, e uma **API em Python**. Utiliza **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), a aplicação automatiza **apólices, pagamentos e governança baseada em tokens**.
+**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity**, utilizando provas geradas em **Zero-Knowledge Proof** pela **ZK Verify**, e uma **API em Python**. Utiliza **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), a aplicação automatiza **apólices, pagamentos e governança baseada em tokens**.
 
 > 🚀 Transparente. Rápido. Sem burocracia.
 
