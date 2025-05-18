@@ -1,6 +1,15 @@
 ![Image](https://github.com/user-attachments/assets/7245710b-05d3-44dc-8ba8-38fac28ee0bc)
 # AgroChain – Plataforma de Seguro Agrícola Paramétrico
-**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity** e uma **API em Python**. Utilizando **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), ela automatiza **apólices, pagamentos e governança baseada em tokens**.
+#### Teach Lead: Patrícia Sirvarolli ####
+https://github.com/psirvarolli
+#### Front-end: Felipe ####
+https://github.com/Felipe-WillianV
+#### Back-enc: Uederson Ferreira####
+https://github.com/uederson-ferreira
+#### Product Manager: José Franco####
+https://github.com/josemvfranco
+
+**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity**, utilizando provas geradas em **ZK Proof**, e uma **API em Python**. Utiliza **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), a aplicação automatiza **apólices, pagamentos e governança baseada em tokens**.
 
 > 🚀 Transparente. Rápido. Sem burocracia.
 
@@ -8,7 +17,15 @@
 
 ## 🧭 Visão Geral
 
-A AgroChain é composta por:
+Buscamos solucionar dores como: 
+
+ Proteger o investimento feito em cada safra; 
+ Obter pagamentos imediatos quando há eventos climáticos adversos;
+ Reduzir burocracia e tempo para recebimento de indenizações;
+ Ter previsibilidade sobre quando e quanto receberá em caso de sinistro;
+ Garantir sustentabilidade financeira do negócio a longo prazo.
+
+#### A AgroChain é composta por:
 
 * 🧠 **Contratos Inteligentes**:
   `AgroChainInsurance`, `PolicyNFT`, `AgroChainOracle`, `AgroChainTreasury`, `AgroChainGovernance`, `AgroChainToken`.
