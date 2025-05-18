@@ -1,5 +1,5 @@
-# 🌾 AgroChain – Plataforma de Seguro Agrícola Paramétrico
-
+#![Image](https://github.com/user-attachments/assets/7245710b-05d3-44dc-8ba8-38fac28ee0bc)
+# AgroChain – Plataforma de Seguro Agrícola Paramétrico
 **AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity** e uma **API em Python**. Utilizando **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), ela automatiza **apólices, pagamentos e governança baseada em tokens**.
 
 > 🚀 Transparente. Rápido. Sem burocracia.
