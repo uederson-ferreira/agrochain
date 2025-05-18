@@ -2,7 +2,7 @@
 # AgroChain – Plataforma de Seguro Agrícola Paramétrico
 #### Teach Lead: Patrícia Sirvarolli
 https://github.com/psirvarolli
-#### Front-end: Felipe Willian
+#### Front-end: Felipe Vieira
 https://github.com/Felipe-WillianV
 #### Back-enc: Uederson Ferreira
 https://github.com/uederson-ferreira
