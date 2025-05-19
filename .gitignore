@@ -1,7 +1,6 @@
 # Foundry
-out/
 cache/
-/smart-contracts/seguroagrochain/lib/
+#/smart-contracts/seguroagrochain/lib/
 
 #Ambiente Python
 .venv/
@@ -60,7 +59,6 @@ dist/
 build/
 .cache/
 .next/
-out/
 
 # Python (AI services, backend)
 __pycache__/
