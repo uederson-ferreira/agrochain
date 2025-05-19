@@ -19,7 +19,12 @@ node_modules/
 
 # Outros
 .env
+.env.moonbase
+.env.REDELOCAL
 .DS_Store
+cache/
+broadcast/
+
 
 # Remix compiler artifacts
 **/artifacts/

@@ -12,3 +12,6 @@ remappings = [
     "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
     "@chainlink/contracts/=lib/chainlink/contracts/"
 ]
+
+[rpc_endpoints]
+moonbase = "https://rpc.api.moonbase.moonbeam.network"
