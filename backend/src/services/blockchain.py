@@ -1,3 +1,4 @@
+#backend/src/services/blockchain.py
 from ..utils.config import w3, admin_address, admin_private_key, insurance_contract, oracle_contract, treasury_contract, governance_contract, token_contract, nft_contract
 import logging
 
@@ -36,7 +37,7 @@ def send_transaction(contract_function, value=0, sender_address=None, private_ke
         signed_tx = w3.eth.account.sign_transaction(tx, private_key)
         logger.debug(f"Signed transaction: {signed_tx}")
         
-        tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
         receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
         
         logger.debug(f"Transaction successful: {tx_hash.hex()}")
