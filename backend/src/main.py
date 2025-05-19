@@ -1,6 +1,7 @@
-#src/main.py
+# src/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from .api.routes import router
 
 app = FastAPI(
@@ -25,6 +26,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Redireciona "/" para "/api/docs"
+@app.get("/")
+def root():
+    return RedirectResponse(url="/api/docs")
 
 app.include_router(router, prefix="/api")
 
