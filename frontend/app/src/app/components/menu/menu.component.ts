@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-
+  simularApolice() {
+    window.location.href = 'prover_select.html';
+  }
 }
