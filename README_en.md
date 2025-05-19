@@ -1,51 +1,74 @@
 
-# 🌾 AgroChain – Plataforma de Seguro Agrícola Paramétrico
+![Image](https://github.com/user-attachments/assets/7245710b-05d3-44dc-8ba8-38fac28ee0bc)
+# AgroChain – Parametric Agricultural Insurance Platform
+#### Teach Lead: Patrícia Sirvarolli
+https://github.com/psirvarolli
+#### Front-end: Felipe Vieira
+https://github.com/Felipe-WillianV
+#### Back-enc: Uederson Ferreira
+https://github.com/uederson-ferreira
+#### Product Manager: José Franco
+https://github.com/josemvfranco
 
-**AgroChain** é uma plataforma **descentralizada** de seguros agrícolas paramétricos, construída com **contratos inteligentes em Solidity** e uma **API em Python**. Utilizando **dados climáticos em tempo real** (OpenWeather API + Chainlink Oracle), ela automatiza **apólices, pagamentos e governança baseada em tokens**.  
-> 🚀 Transparente. Rápido. Sem burocracia.
+**AgroChain** is a **decentralized** parametric agricultural insurance platform, built with **smart contracts in Solidity**, using proofs generated in **Zero-Knowledge Proof** by **ZK Verify**, and a **Python API**. Using **real-time weather data** (OpenWeather API + Chainlink Oracle), the application automates **policies, payments and token-based governance**.
+
+> 🚀 Transparent. Fast. No bureaucracy.
 
 ---
 
-## 🧭 Visão Geral
+## 🧭 Overview
 
-A AgroChain é composta por:
+We seek to solve the problem as: 
 
-- 🧠 **Contratos Inteligentes**:  
+- Protect the investment made in each harvest; 
+- Get immediate payments when there are adverse weather events;
+- Reduce bureaucracy and time to receive compensation;
+- Have predictability about when and how much you will receive in the event of a claim;
+- Ensure long-term financial sustainability of the business.
+
+#### A AgroChain is composed of:
+
+* 🧠 **Smart Contracts**:
   `AgroChainInsurance`, `PolicyNFT`, `AgroChainOracle`, `AgroChainTreasury`, `AgroChainGovernance`, `AgroChainToken`.
 
-- 🖥️ **Backend**:  
+* 🖥️ **Backend**:
   API FastAPI localizada em `src/main.py`.
 
-- ✅ **Testes Automatizados**:  
+* ✅ **Automated Tests**:
   Arquivos em `src/tests/test_routes.py`.
 
 ---
 
-## ⚙️ Pré-requisitos
+## ⚙️ Prerequisites
 
-Tenha os seguintes componentes instalados:
+Have the following components installed:
 
-- 📦 Node.js `v16+` & `npm` (para o Anvil)
-- 🐍 Python `v3.10+` & `pip`
-- 🧱 Foundry  
-  Instale com:  
+* 📦 Node.js `v16+` & `npm` (for Anvil)
+
+* 🐍 Python `v3.10+` & `pip`
+
+* 🧱 Foundry
+  Instal with:
+
   ```bash
   curl -L https://foundry.paradigm.xyz | bash
   foundryup
   ```
 
-- 🔁 Anvil  
+* 🔁 Anvil
+
   ```bash
   npm install -g @foundry-rs/foundry
   ```
 
-- 🧬 Git  
-- ☁️ **Chave da API OpenWeather**  
-  → Crie sua conta em [openweathermap.org](https://openweathermap.org/)
+* 🧬 Git
+
+* ☁️ **API OpenWeather Key**
+  → Create your account at [openweathermap.org](https://openweathermap.org/)
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```bash
 agrochain/
@@ -60,21 +83,21 @@ agrochain/
 │       ├── contracts/
 │       │   ├── AgroChain*.sol
 │       └── script/Deploy.s.sol
-└── README.md
+└── README_en.md
 ```
 
 ---
 
-## 🚀 Instalação
+## 🚀 Installation
 
-### 1️⃣ Clone o Repositório
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/seu-usuario/agrochain.git
 cd agrochain
 ```
 
-### 2️⃣ Configure o Ambiente Python (Backend)
+### 2️⃣ Configure the Python Environment (Backend)
 
 ```bash
 cd backend
@@ -83,7 +106,7 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-> 🔧 Se necessário, crie `requirements.txt` com:
+> 🔧 If necessary, create `requirements.txt` with:
 
 ```txt
 fastapi==0.110.0
@@ -98,9 +121,9 @@ pytest-mock==3.14.0
 
 ---
 
-### 3️⃣ Configure o `.env`
+### 3️⃣ Configure the `.env`
 
-No diretório `backend/`, crie um arquivo `.env` com:
+In the `backend/` directory, create a `.env` file with:
 
 ```env
 WEB3_PROVIDER_URL=http://127.0.0.1:8545
@@ -116,7 +139,7 @@ NFT_ADDRESS=
 
 ---
 
-### 4️⃣ Compile e Implante os Contratos
+### 4️⃣ Compile and Deploy Contracts
 
 ```bash
 cd smart-contracts/seguroagrochain
@@ -124,7 +147,7 @@ forge build
 anvil
 ```
 
-Depois, em outro terminal:
+Then, in another terminal:
 
 ```bash
 forge script script/Deploy.s.sol \
@@ -133,29 +156,29 @@ forge script script/Deploy.s.sol \
 --broadcast
 ```
 
-📌 Copie os endereços dos contratos e atualize o `.env`.
+📌 Copy the addresses of the contracts and update the `.env`.
 
 ---
 
-### 5️⃣ Inicie o Backend
+### 5️⃣ Start the Backend
 
 ```bash
 cd ../../backend
 uvicorn src.main:app --reload
 ```
 
-🔗 Acesse: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+🔗 Access: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ---
 
-## 🧪 Testes Automatizados
+## 🧪 Automated Tests
 
-Certifique-se de que:
+Make sure:
 
-- Anvil está rodando ✅
-- Contratos foram implantados ✅
+* Anvil is running ✅
+* Contracts have been deployed ✅
 
-Então execute:
+Then run:
 
 ```bash
 pytest src/tests/test_routes.py -v
@@ -163,18 +186,19 @@ pytest src/tests/test_routes.py -v
 
 ---
 
-## 🔌 Uso da API – Endpoints Principais
+## 🔌 Using the API – Main Endpoints
 
-📚 Acesse a documentação interativa:  
+📚 Access the interactive documentation:
 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-### 📝 Criar Apólice
+### 📝 Create Policy
 
 ```http
 POST /api/policies
 ```
 
-#### Corpo:
+#### Body
+
 ```json
 {
   "farmer": "0x...",
@@ -197,7 +221,7 @@ POST /api/policies
 
 ---
 
-### 🌦️ Consultar Dados Climáticos
+### 🌦️ Consult Climate Data
 
 ```http
 GET /api/weather/marabá
@@ -205,7 +229,7 @@ GET /api/weather/marabá
 
 ---
 
-### 💰 Consultar Saldo da Tesouraria
+### 💰 Check Treasury Balance
 
 ```http
 GET /treasury/balance
@@ -213,19 +237,18 @@ GET /treasury/balance
 
 ---
 
-### Outros:
+### Others
 
-- `/api/policies/{id}/nft` → Metadados do NFT da apólice  
-- `/governance/proposals` → Criação de propostas  
-- `/admin/regions` → Adicionar regiões  
-
+* `/api/policies/{id}/nft` → Policy NFT Metadata
+* `/governance/proposals` → Proposal creation
+* `/admin/regions` → Add regions
 ---
 
-## 🔧 Configuração Avançada
+## 🔧 Advanced Configuration
 
 ### 🔗 Chainlink (Sepolia)
 
-Atualize `Deploy.s.sol`:
+Update `Deploy.s.sol`:
 
 ```solidity
 chainlinkToken = "0x514910771AF9Ca656af840dff83E8264EcF986CA";
@@ -236,7 +259,7 @@ chainlinkFee = 0.1 ether;
 
 ---
 
-### 🌍 Adicionar Regiões e Culturas
+### 🌍 Add Regions and Cultures
 
 ```bash
 curl -X POST http://127.0.0.1:8000/admin/regions \
@@ -246,13 +269,15 @@ curl -X POST http://127.0.0.1:8000/admin/regions \
 
 ---
 
-## 🛠️ Solução de Problemas
+## 🛠️ Troubleshooting
 
-### ❌ 404 nas Rotas
-- Verifique os endereços no `.env`
-- Verifique se a compilação gerou arquivos em `out/`
+### ❌ 404 Routes
 
-### 🧪 Falha nos Testes?
+* Check the addresses in `.env`
+* Check if the compilation generated files in `out/`
+
+### 🧪 Tests Failed??
+
 ```bash
 pip install pytest-mock
 forge build
@@ -260,21 +285,25 @@ forge build
 
 ---
 
-## 🤝 Contribuição
+## 🤝 Contribute
 
-1. Fork 🍴  
-2. Crie uma branch  
+1. Fork 🍴
+2. Create a branch
+
 ```bash
 git checkout -b feature/sua-funcionalidade
 ```
-3. Commit  
+
+3. Commit
+
 ```bash
 git commit -m "feat: nova funcionalidade"
 ```
-4. Envie um PR 🚀
+
+4. Submit a PR 🚀
 
 ---
 
-## 📜 Licença
+## 📜 License
 
-MIT License – veja [LICENSE](./LICENSE) para detalhes.
+MIT License – read [LICENSE](./LICENSE) for details.
