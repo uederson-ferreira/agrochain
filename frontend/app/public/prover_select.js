@@ -117,6 +117,7 @@ function atualizarStatusApi(ok) {
   el.style.color = ok ? 'green' : 'red';
 }
 
+// Verifica se a prova foi gerada e se o snarkjs está disponível
 window.verificarComSnarkjs = async function() {
   try {
     if (!provaGerada) throw new Error("Gere a prova primeiro.");
