@@ -168,7 +168,7 @@ window.enviarParaAPI = async function() {
       publicSignals: provaGerada.publicSignals
     };
 
-    const res = await fetch("http://localhost:8000/api/verify-proof", {
+    const res = await fetch("https://agrochain-jsvb.onrender.com/api/verify-proof", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

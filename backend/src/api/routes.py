@@ -680,7 +680,7 @@ async def verify_proof(request: Request):
 
                     try:
                         async with httpx.AsyncClient() as client:
-                            policy_response = await client.post("http://localhost:8000/api/policies", json=mock_policy)
+                            policy_response = await client.post("https://agrochain-jsvb.onrender.com/api/policies", json=mock_policy)
 
                         if policy_response.status_code == 200:
                             print("📤 Apólice enviada com sucesso.")
@@ -780,7 +780,7 @@ async def verify_proof(request: Request):
 #         }
 
 #         async with httpx.AsyncClient() as client:
-#             policy_response = await client.post("http://localhost:8000/api/policies", json=mock_policy)
+#             policy_response = await client.post("https://agrochain-jsvb.onrender.com/api/policies", json=mock_policy)
 
 #         return { "status": "verified" }
 

@@ -6,7 +6,7 @@ from web3 import Web3
 import pytest_asyncio
 
 # Configurações básicas
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://agrochain-jsvb.onrender.com"
 VALID_FARMER_ADDRESS = "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"  # Primeira conta do Anvil
 INVALID_FARMER_ADDRESS = "0xInvalidAddress"
 REGION = "Bahia,BR"

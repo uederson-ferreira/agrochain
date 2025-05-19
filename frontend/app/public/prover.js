@@ -131,7 +131,7 @@ window.gerarProva = async function() {
     };
 
     try {
-      const policyResponse = await fetch('http://localhost:8000/api/policies', {
+      const policyResponse = await fetch('https://agrochain-jsvb.onrender.com/api/policies', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(mockPolicy)

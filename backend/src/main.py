@@ -16,6 +16,10 @@ app = FastAPI(
 origins = [
     "http://localhost:4200",
     "http://localhost:3000",  # seu frontend Angular
+    "https://agrochain.vercel.app",
+    "https://agrochain-uederson-ferreiras-projects.vercel.app",
+    "https://agrochain-git-inclusao-zkverify-uederson-ferreiras-projects.vercel.app",
+    "https://agrochain-maqrpda6u-uederson-ferreiras-projects.vercel.app"
 ]
 
 # Configurar CORS para Angular

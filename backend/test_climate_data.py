@@ -9,7 +9,7 @@ import json
 import argparse
 
 # URL base da API
-BASE_URL = "http://127.0.0.1:8000/api"
+BASE_URL = "https://agrochain-jsvb.onrender.com/api"
 
 def test_climate_data(policy_id, region, parameter_type):
     """Testa a consulta de dados climáticos via API"""

@@ -10,7 +10,7 @@ env_path = os.path.join(current_dir, '.env')
 load_dotenv(env_path)
 
 # Configuração de Web3
-WEB3_PROVIDER_URL = os.getenv("WEB3_PROVIDER_URL", "http://127.0.0.1:8545")
+WEB3_PROVIDER_URL = os.getenv("WEB3_PROVIDER_URL")
 w3 = Web3(Web3.HTTPProvider(WEB3_PROVIDER_URL))
 
 # Removido o middleware geth_poa_middleware, pois o Anvil não requer PoA

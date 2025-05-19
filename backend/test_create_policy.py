@@ -9,7 +9,7 @@ import json
 import time
 
 # URL base da API
-BASE_URL = "http://127.0.0.1:8000/api"
+BASE_URL = "https://agrochain-jsvb.onrender.com/api"
 
 def test_create_policy():
     """Testa a criação de uma apólice via API"""
