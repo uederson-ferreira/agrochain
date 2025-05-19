@@ -160,6 +160,58 @@ window.verificarComSnarkjs = async function() {
 //   }
 // };
 
+// window.enviarParaAPI = async function() {
+//   try {
+//     if (!provaGerada) throw new Error("Gere a prova primeiro.");
+
+//     const payload = {
+//       proof: provaGerada.proof,
+//       publicSignals: provaGerada.publicSignals
+//     };
+
+//     const res = await fetch("https://agrochain-jsvb.onrender.com/api/verify-proof", {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(payload)
+//     });
+//     const data = await res.json();
+//     console.log("🔍 Resposta completa da API:", data);
+    
+//     if (data.status === 'verified' && data.policyResponse) {
+//       const policy = data.policyResponse;
+//       const hash = policy.transactionHash || 'hash não disponível';
+//       const id = policy.policyId ?? 'ID não encontrado';
+
+//       showNotification(`✅ Apólice criada com sucesso! ID: ${id}`, 'success');
+
+//       const extraStatus = document.getElementById('verificationStatusExtra');
+//       if (extraStatus) {
+//         extraStatus.innerHTML = `
+//           <div style="margin-top: 10px; color: #2e7d32;">
+//             <p><strong>ID da Apólice:</strong> ${id}</p>
+//             <p><strong>Tx Hash:</strong> <code>${hash}</code></p>
+//           </div>
+//         `;
+//       }
+//     } else {
+//       showNotification("⚠️ Prova verificada, mas a apólice não foi criada", "error");
+//     }
+    
+//     //const data = await res.json();
+//     showNotification(`🚀 Prova enviada com sucesso ao backend! Status: ${data.status}`);
+//     // ✅ Aqui vem a novidade:
+//     if (data.status === 'verified' || data.status === true) {
+//       atualizarStatusApi(true);
+//     } else {
+//       atualizarStatusApi(false);
+//     }
+//   } catch (err) {
+//     showNotification("Erro ao enviar para API: " + err.message, "error");
+//     atualizarStatusApi(false);
+//   }
+// };
+
+// Verifica se a prova foi gerada e se o zkVerify está disponível
 window.enviarParaAPI = async function() {
   try {
     if (!provaGerada) throw new Error("Gere a prova primeiro.");
@@ -174,13 +226,26 @@ window.enviarParaAPI = async function() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+
     const data = await res.json();
     console.log("🔍 Resposta completa da API:", data);
     
     if (data.status === 'verified' && data.policyResponse) {
-      const policy = data.policyResponse;
+      let policy = data.policyResponse;
+
+      // Caso policyResponse venha como string
+      if (typeof policy === 'string') {
+        try {
+          policy = JSON.parse(policy);
+        } catch (e) {
+          console.error("Erro ao parsear policyResponse:", e);
+          policy = {};
+        }
+      }
+
       const hash = policy.transactionHash || 'hash não disponível';
       const id = policy.policyId ?? 'ID não encontrado';
+      const block = policy.blockNumber ?? 'bloco não encontrado';
 
       showNotification(`✅ Apólice criada com sucesso! ID: ${id}`, 'success');
 
@@ -190,16 +255,16 @@ window.enviarParaAPI = async function() {
           <div style="margin-top: 10px; color: #2e7d32;">
             <p><strong>ID da Apólice:</strong> ${id}</p>
             <p><strong>Tx Hash:</strong> <code>${hash}</code></p>
+            <p><strong>Nº do Bloco:</strong> ${block}</p>
           </div>
         `;
       }
     } else {
       showNotification("⚠️ Prova verificada, mas a apólice não foi criada", "error");
     }
-    
-    //const data = await res.json();
+
     showNotification(`🚀 Prova enviada com sucesso ao backend! Status: ${data.status}`);
-    // ✅ Aqui vem a novidade:
+
     if (data.status === 'verified' || data.status === true) {
       atualizarStatusApi(true);
     } else {
@@ -210,6 +275,7 @@ window.enviarParaAPI = async function() {
     atualizarStatusApi(false);
   }
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentTimestampField = document.getElementById('current_timestamp');

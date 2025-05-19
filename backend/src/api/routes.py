@@ -198,7 +198,17 @@ async def create_policy(request: CreatePolicyRequest):
         if policy_id is None:
             success_msg["warning"] = "Could not extract policy ID from transaction. Please check contract implementation."
             
+        success_msg = {
+            "policyId": policy_id,
+            "transactionHash": receipt["transactionHash"].hex(),
+            "blockNumber": receipt["blockNumber"]
+        }
+
+        print("✅ Apólice criada com sucesso:", success_msg)
+
         return success_msg
+
+
             
     except Exception as e:
         logger.error(f"Error in create_policy: {str(e)}", exc_info=True)
@@ -659,11 +669,13 @@ async def verify_proof(request: Request):
                 policy_response = await client.post("https://agrochain-jsvb.onrender.com/api/policies", json=mock_policy)
 
             if policy_response.status_code == 200:
-                print("📤 Apólice enviada com sucesso.")
+                response_data = policy_response.json()
+                print("📦 Resposta da /api/policies:", response_data)
+
                 return {
                     "status": "verified",
                     "message": "✅ Prova aceita e apólice enviada com sucesso.",
-                    "policyResponse": policy_response.json()
+                    "policyResponse": response_data
                 }
             else:
                 print("⚠️ Erro ao enviar apólice:", policy_response.text)
@@ -686,7 +698,6 @@ async def verify_proof(request: Request):
             "status": "error",
             "message": f"Erro ao processar requisição: {str(e)}"
         })
-
 
 # @router.post("/verify-proof")
 # async def verify_proof(request: Request):
