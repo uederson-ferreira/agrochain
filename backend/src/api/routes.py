@@ -643,7 +643,8 @@ async def verify_proof(request: Request):
             public_file.flush()
 
             # Caminho da verification key
-            vkey_path = "/Users/uedersonferreira/MeusProjetos/Hackathon-NearX-zkVerify/agrochain/frontend/app/public/verification_key.json"
+            vkey_path = "frontend/app/public/verification_key.json"
+            #vkey_path = "/Users/uedersonferreira/MeusProjetos/Hackathon-NearX-zkVerify/agrochain/frontend/app/public/verification_key.json"
 
             try:
                 result = subprocess.run([
